@@ -1,0 +1,54 @@
+<div class="row">
+	<div class="col-sm-12"> 
+	<h3>List of Products</h3>	
+	<div class="col-sm-6" ng-controller="ProductController">
+			
+			 
+          <div class="well ">
+     
+           Find: <input ng-model="search.Name"> </input>
+ 
+            </div>
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Action</th>
+				</tr>
+				<tr ng-repeat="product in productsList | filter: search | orderBy: ['Name','Price'] | limitTo:num">
+					<td><a href="#/details/{{product}}">{{product.Name | uppercase}}</a></td>
+					<td>{{product.Price}}</td>
+					<td><button class="btn btn-primary btn-sm" ng-click="addToCart(product)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart </button></td>
+				</tr>
+			</table>
+			<button class="btn btn-success" ng-click="load()"> load more </button>
+
+		</div>
+		<div class="col-sm-6 well" ng-controller="CartController">
+			<h3>Cart Items <span class="label label-primary">{{cart.length}}</span></h3>
+			<table class="table table-bordered table-striped">
+				<tr><th> Action </th>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Amount</th>
+				</tr>
+				<tr ng-repeat="product in cart">
+				    <td><button class="btn btn-danger btn-sm" ng-click="remove($index)"> Remove </button></td>
+					<td>{{product.name}}</td>
+					<td>{{product.Price}}</td>
+					<td>
+                     <input ng-model="product.qty" type="number" style="width:50px;" min="1">
+                    </td>
+					<td>{{product.Price * product.qty}}</td>
+					
+				</tr>
+				<tr>
+				<td colspan="4"> Total Amount </td>
+				<td> {{totalAmount()}} </td>
+				</tr>
+			</table>
+		</div>
+
+</div> 
+		</div>

@@ -1,0 +1,60 @@
+<h3> Sign Up</h3>
+
+<!-- <form name="userform">
+
+   <input name="name"  ng-model="user.name" placeholder="EnterUserName"  ng-required="true"/> <br/>
+  
+   <span ng-show="userform.name.$error.required && userform.name.$dirty">Username is required.. </span>
+    
+   <input type="submit" class="btn btn-primary" ng-disabled="userform.$invalid"></input>
+
+</form> -->
+
+
+
+<form name="userform" class="col-lg-4">
+  <div class="form-group">
+    <label for="username">UserName:</label>
+    <input class="form-control" id="username" name="name"  ng-model="user.name" ng-required="true"/>
+     <span ng-show="userform.name.$error.required && userform.name.$dirty" class="btn-danger">Username is required.. </span>
+  </div>
+  
+  <div class="form-group">
+    <label for="cnt">Contact Number:</label>
+    <input type="text" class="form-control" id="cnt" name="contactno" ng-model="user.contactno" ng-pattern="/^[789]\d{9}$/"/>
+    <span ng-show="userform.contactno.$error.pattern && userform.contactno.$dirty" class="btn-danger">Invalid Contact no. </span>
+  </div>
+  
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" name="password" ng-model="user.password" required ng-minlength="5" ng-maxlength = "9">
+    <span ng-show="userform.password.$error.required && userform.password.$dirty" class="btn-danger">password  is required </span>
+    <span ng-show="userform.password.$error.minlength && userform.password.$dirty" class="btn-danger">min length is invalid</span>
+    <span ng-show="userform.password.$error.maxlength && userform.password.$dirty" class="btn-danger">max length is invalid </span>
+  </div>
+  
+   <div class="form-group">
+    <label for="dropDown">State:</label>
+    <select id="dropDown" name="state" ng-model="user.state" ng-options ="state.stateId as state.Name for state in stateList" ng-required="true">
+       <option value="">Select </option>
+    </select>
+    <span ng-show="userform.state.$error.required && userform.state.$dirty" class="btn-danger">Please select a State </span>
+  </div>
+  
+   <div class="form-group">
+    <label for="dropDown1">City:</label>
+    <select id="dropDown1" name="city" ng-model="user.city" ng-options ="city.cityId as city.name for city in cityList" ng-required="true">
+       <option value="">Select </option>
+    </select>
+    <span ng-show="userform.city.$error.required && userform.city.$dirty" class="btn-danger">Please select a city </span>
+  </div>
+  
+  <div class="checkbox">
+    <label><input type="checkbox" ng-model="user.married">Marital Status:{{user.married}}</label>
+  </div>
+
+  <input type="submit" class="btn btn-primary" ng-disabled="userform.$invalid"></input>
+</form>
+
+
+

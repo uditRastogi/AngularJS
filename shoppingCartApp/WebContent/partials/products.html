@@ -1,0 +1,33 @@
+<h3> Products Management</h3>
+<form class="well">
+
+  <input ng-model="newProduct.code" placeholder="Enter Product Code" />
+  <input ng-model="newProduct.Name" placeholder="Enter Product Name" />
+  <input ng-model="newProduct.Price" placeholder="Enter Product Price" />
+  <input ng-model="newProduct.Description" placeholder="Enter Product Description" />
+  
+  <button class="btn btn-primary" ng-click="save()"  type="Submit"> 
+  <span class="glyphicon glyphicon-floppy-disk"></span>Save</button>
+  
+    <button class="btn btn-danger" ng-click="clearAllData()" > clear </button>
+  
+  </form>
+
+	<table class="table table-bordered table-striped">
+				<tr>
+					<th>Code</th>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Description</th>
+					<th>Action</th>
+				</tr>
+				<tr ng-repeat="product in productsList">
+				    <td>{{product.code}}</td>
+					<td>{{product.Name | uppercase}}</td>
+					<td>{{product.Price}}</td>
+					<td>{{product.Description | truncate :5}}</td>
+					<td><button class="btn btn-danger btn-sm" ng-click="remove($index)"> <span class="glyphicon glyphicon-trash"></span>  </button>
+					</td>
+					<!-- <td><button class="btn btn-primary btn-sm" ng-click="addToCart(product)"> Add to cart </button></td> -->
+				</tr>
+			</table>

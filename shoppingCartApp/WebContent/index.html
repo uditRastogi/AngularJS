@@ -1,0 +1,50 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="myCartApp">
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+
+<script src="js/angular-resource.js"></script>
+
+<script src="js/cartapp.js"></script>
+<script src="js/angular-sanitize.js"></script>
+
+<script src="js/appcontroller.js"></script>
+<script src="js/appservices.js"></script>
+<script src="js/appfactories.js"></script>
+
+</head>
+<body class="container" ng-controller="MainController">
+<!-- 	<h1>Shopping Cart Page</h1> -->
+ 
+ <div ng-init="appHeading='My <u>Shopping Cart</u> Application'">
+ 
+    <h1> <span ng-bind-html="appHeading"> </span> </h1>
+    
+ </div>
+    <div class="well">
+     <a href="#/login" ng-hide="isLogin">Login</a> &nbsp;
+     
+     <a href="#/signup" ng-hide="isLogin">SignUp</a>&nbsp;
+     <a href="#/logout" ng-show="isLogin">Logout</a>
+     </div>
+ 
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#/">Home</a></li>
+        <li role="presentation"><a href="#/cart">Cart</a></li>
+        <li role="presentation" ng-show="isLogin"><a href="#/products">Products</a></li>
+    </ul>
+
+
+	<ng-view>
+	
+	
+	</ng-view>
+	
+	
+</body>
+</html>
+
