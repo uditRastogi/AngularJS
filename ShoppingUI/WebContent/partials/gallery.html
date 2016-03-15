@@ -1,0 +1,39 @@
+
+<h2 class="title text-center">Product Gallery</h2>
+
+<div class="row text-center">
+<a class="btn btn-primary" href="#/"><i class="fa fa-reply"></i>&nbsp;Back to Featured Page</a>
+</div>
+<br>
+<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner">
+	<div class="item" ng-repeat="image in imageList"  ng-class="{'active':isCurrentSlideIndex($index)}"
+                      ng-click="setCurrentSlideIndex($index);">
+        <div class="col-sm-2"></div>              
+		<div class="col-sm-8">
+			<div class="product-image-wrapper">
+				<div class="single-products">
+					<div class="productinfo text-center">
+						<img src="{{image.url}}" alt="" />
+						<h2>$56</h2>
+						<p>Easy Polo Black Edition</p>
+						<a href="#" class="btn btn-default add-to-cart"><i
+							class="fa fa-shopping-cart"></i>Add to cart</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a class="left recommended-item-control" ng-click="prevSlide()"
+	 data-slide="prev"> <i
+	class="fa fa-angle-left">&nbsp;Prev</i>
+</a>
+<a class="right recommended-item-control"
+	 data-slide="next" ng-click="nextSlide()"> <i
+	class="fa fa-angle-right">&nbsp; Next</i>
+</a>
+
+</div>

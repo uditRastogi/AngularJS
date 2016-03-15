@@ -1,0 +1,44 @@
+<div class="features_items">
+<h2 class="title text-center">Features Items</h2>
+<div class="col-sm-4" ng-repeat="image in imageList">
+	<div class="product">
+		<div class="make3D" ng-class="{animate: hover}" 
+          ng-mouseenter="hover = true"
+          ng-mouseleave="hover = false">
+			<div class="product-front">
+				<div class="shadow"></div>
+				<img src="{{image.url}}" alt="" />
+				<div class="image_overlay"></div>
+				<div class="add_to_cart">Add to cart</div>
+				<div class="view_gallery" ng-click="showGallery($index);">View gallery</div>
+				<div class="stats">
+					<div class="stats-container">
+						<span class="product_price">$39</span> <span class="product_name">FLUTED
+							HEM DRESS</span>
+						<p>Summer dress</p>
+
+						<div class="product-options">
+							<strong>SIZES</strong> <span>XS, S, M, L, XL, XXL</span> <strong>COLORS</strong>
+							<div class="colors">
+								<div class="c-blue">
+									<span></span>
+								</div>
+								<div class="c-red">
+									<span></span>
+								</div>
+								<div class="c-white">
+									<span></span>
+								</div>
+								<div class="c-green">
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>
